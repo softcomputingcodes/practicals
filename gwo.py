@@ -26,6 +26,7 @@
 # Return Xα as the best (optimal) solution
 
 import numpy as np
+import matplotlib.pyplot as plt
 def f(x) :
     return (1 - x[0])**2 + 100*(x[1] - x[0]**2)**2
 
@@ -36,6 +37,9 @@ def gwo(f,n=10, iter = 100, lb=-5, ub=5):
 
     alpha , beta, delta = np.zeros(2),np.zeros(2),np.zeros(2)
     fa,fb,fd = np.inf, np.inf, np.inf
+
+    convergence = []  # store best fitness for plotting
+
 
     for t in range(iter):
         a = 2 - 2 * (t/iter)
@@ -79,10 +83,19 @@ def gwo(f,n=10, iter = 100, lb=-5, ub=5):
                 fb, beta = fit[i], pos[i].copy()
             elif fit[i] < fd:
                 fd, delta = fit[i], pos[i].copy()
+        convergence.append(fa)
 
         if t % 10 == 0 or t == iter - 1:
             print(t+1, alpha, fa, sep='\t')
     print("\nFinal Best Wolf Position:", alpha)
     print("Minimum Value:", fa)
+
+    plt.figure(figsize=(8,5))
+    plt.plot(range(1, iter+1), convergence, marker='o', color='purple')
+    plt.title("GWO Convergence Curve (Rosenbrock Function)")
+    plt.xlabel("Iteration")
+    plt.ylabel("Best Fitness (α)")
+    plt.grid(True)
+    plt.show()
 
 gwo(f)
