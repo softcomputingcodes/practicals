@@ -42,6 +42,7 @@ For iteration t = 1 to max_iter:
 Output gbest and its fitness
 """
 import numpy as np
+import matplotlib.pyplot  as plt
 def rosenbrock(x,y):
     return (1 - x)**2 + 100*(y - x**2)**2
     # return (1 - x)**2 + 100*(y - x**2)**2
@@ -61,6 +62,7 @@ best_index = np.argmin(pf)
 
 gb = pb[best_index]
 gf = np.min(pf)
+best_fitness_each_iter = []
 
 for t in range(iter):
     r1, r2 = np.random.rand(n,2), np.random.rand(n,2)
@@ -76,6 +78,16 @@ for t in range(iter):
     
     best = np.argmin(pf)
     gb, gf = pb[best], pf[best]
+    best_fitness_each_iter.append(gf)
+
 
     print(f"Iter {t+1}: Best = {gb}, Fitness = {gf:.6f}")
 
+# --- Visualization: Convergence Graph ---
+plt.figure(figsize=(8,5))
+plt.plot(range(1, iter+1), best_fitness_each_iter, marker='o', color='blue')
+plt.title("PSO Convergence Curve on Rosenbrock Function")
+plt.xlabel("Iteration")
+plt.ylabel("Best Fitness Value")
+plt.grid(True)
+plt.show()
