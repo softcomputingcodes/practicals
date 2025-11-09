@@ -1,3 +1,67 @@
+
+# # --- 1️⃣ UNION (A ∪ B) ---
+# Used to combine two fuzzy sets (e.g., Slow speed & Fast speed).
+# Union takes the **maximum** membership value at each element.
+
+# Algorithm:
+# 1. Define two fuzzy sets with membership functions μA(x) and μB(x).
+# 2. For each element x in the universe:
+#       μ(A ∪ B)(x) = max( μA(x), μB(x) )
+# 3. Classify elements based on which membership is higher.
+# 4. Plot all three:
+#       - μA(x): Set A
+#       - μB(x): Set B
+#       - μ(A ∪ B)(x): Union (dashed line)
+
+# Pseudocode:
+# ----------------------------------
+# for each x in X:
+#     a = μA(x)
+#     b = μB(x)
+#     μ_union(x) = max(a, b)
+# Display or plot μ_union(x)
+# ----------------------------------
+
+
+# # --- 2️⃣ INTERSECTION (A ∩ B) ---
+# Used to find the common region between two fuzzy sets.
+# Intersection takes the **minimum** membership value at each element.
+
+# Algorithm:
+# 1. Define two fuzzy sets with membership functions μA(x) and μB(x).
+# 2. For each element x in the universe:
+#       μ(A ∩ B)(x) = min( μA(x), μB(x) )
+# 3. Identify which set (A or B) dominates for each x.
+# 4. Plot μA(x), μB(x), and μ(A ∩ B)(x).
+
+# Pseudocode:
+# ----------------------------------
+# for each x in X:
+#     a = μA(x)
+#     b = μB(x)
+#     μ_intersection(x) = min(a, b)
+# Display or plot μ_intersection(x)
+# ----------------------------------
+
+
+# # --- 3️⃣ COMPLEMENT (A') ---
+# Shows the degree to which an element does **not belong** to a fuzzy set.
+# Complement takes the **1 minus membership** of each element.
+
+# Algorithm:
+# 1. Define fuzzy set A with membership function μA(x).
+# 2. For each element x:
+#       μ(A')(x) = 1 - μA(x)
+# 3. Plot both:
+#       - μA(x): Original set
+#       - μ(A')(x): Complement (A’)
+
+# Pseudocode:
+# ----------------------------------
+# for each x in X:
+#     μ_complement(x) = 1 - μA(x)
+# Display or plot μA(x) and μ_complement(x)
+# ----------------------------------
 # Union 
 
 def muSlow(s):
