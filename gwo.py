@@ -1,6 +1,6 @@
-Initialize population Xi (i = 1 to N)
-Initialize a, A, C coefficients
-Evaluate fitness of each search agent
+# Initialize population Xi (i = 1 to N)
+# Initialize a, A, C coefficients
+# Evaluate fitness of each search agent
 # Identify Alpha (best), Beta (2nd best), Delta (3rd best)
 
 # While (t < max_iterations):
