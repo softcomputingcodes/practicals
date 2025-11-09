@@ -1,3 +1,30 @@
+Initialize population Xi (i = 1 to N)
+Initialize a, A, C coefficients
+Evaluate fitness of each search agent
+# Identify Alpha (best), Beta (2nd best), Delta (3rd best)
+
+# While (t < max_iterations):
+#     For each wolf i:
+#         Update coefficients A, C
+#         Compute Dα = |C1*Xα - Xi|
+#         Compute Dβ = |C2*Xβ - Xi|
+#         Compute Dδ = |C3*Xδ - Xi|
+        
+#         X1 = Xα - A1*Dα
+#         X2 = Xβ - A2*Dβ
+#         X3 = Xδ - A3*Dδ
+        
+#         Update position Xi = (X1 + X2 + X3) / 3
+#     End For
+    
+#     Update a = 2 - (2 * t / max_iterations)
+#     Evaluate all fitness values
+#     Update Xα, Xβ, Xδ based on new best solutions
+#     Increment t
+# End While
+
+# Return Xα as the best (optimal) solution
+
 import numpy as np
 def f(x) :
     return (1 - x[0])**2 + 100*(x[1] - x[0]**2)**2
